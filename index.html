@@ -37,7 +37,7 @@
     var all = getAll();
     all.push({a: a, b: b});
     save(all);
-    addEntry(a, b);
+    addEntry(a, b, all.length-1);
   }
   function remove(i) {
     var all = getAll();

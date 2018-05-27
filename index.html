@@ -12,23 +12,30 @@
   function save(thing) {
     localStorage.entries = JSON.stringify(thing);
   }
+  function addEntry(a, b) {
+    var elm = document.createElement('div');
+    elm.appendChild(document.createTextNode(a + '\u00a0-'));
+    elm.appendChild(document.createTextNode('\u00a0' + b));
+    en1.appendChild(elm);
+  }
   function load() {
+    en1.innerHTML = '';
     getAll().forEach(function(e) {
-      var elm = document.createElement('div');
-      elm.appendChild(document.createTextNode(e.a + '\u00a0-'));
-      elm.appendChild(document.createTextNode('\u00a0' + e.b));
+      addEntry(a, b);
     });
   } load();
   function add() {
     var all = getAll();
     all.push({a: in1.value, b: in2.value});
     save(all);
+    addEntry(in1.value, in2.value);
+    in1.value = in2.value = '';
   }
   function remove() {
     
   }
   function removeAll() {
-    
+    save([]);
   }
   function parse() {
     

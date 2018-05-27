@@ -12,16 +12,15 @@
   function save(thing) {
     localStorage.entries = JSON.stringify(thing);
   }
-  function addEntry(a, b) {
+  function addEntry(a, b, i) {
     var elm = document.createElement('div');
-    elm.appendChild(document.createTextNode(a + '\u00a0-'));
-    elm.appendChild(document.createTextNode('\u00a0' + b));
+    elm.appendChild(document.createTextNode(i + ':\u00a0' + a + '\u00a0-\u00a0' + b));
     en1.appendChild(elm);
   }
   function load() {
     en1.innerHTML = '';
-    getAll().forEach(function(e) {
-      addEntry(e.a, e.b);
+    getAll().forEach(function(e, i) {
+      addEntry(e.a, e.b, i);
     });
   } load();
   function add() {

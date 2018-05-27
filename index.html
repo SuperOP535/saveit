@@ -49,8 +49,12 @@
     save([]);
   }
   function parse() {
-    tx0.value.match(new RegExp(in0.value, 'g')).forEach(function(e) {
-      addEntry(e, '');
-    });
+    try {
+      tx0.value.match(new RegExp(in0.value, 'g')).forEach(function(e) {
+        addEntry(e, '');
+      });
+    } catch(e) {
+      alert('No matches');
+    }
   }
 </script>

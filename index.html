@@ -3,11 +3,11 @@
   <option>RegEx</option>
 </select><button onclick="prompt('Copy this', localStorage.entries)" style="margin-right: 0.1em">Export</button><button onclick="var val = prompt('Paste here');try{save(JSON.parse(val));load();}catch(e){alert('Invalid');}">Import</button>
 <div id="regex" style="display:none;">
-  <textarea rows="5" style="width: 20em; margin-bottom: 0.1em"></textarea><br>
-  <input placeholder="regex" style="width: 14em; margin-right: 0.1em;"><button onclick="parse()" style="width: 5.9em">parse</button>
+  <textarea placeholder="String input" rows="5" style="width: 20em; margin-bottom: 0.1em"></textarea><br>
+  <input placeholder="RegEx Pattern" style="width: 14em; margin-right: 0.1em;"><button onclick="parse()" style="width: 5.9em">parse</button>
 </div>
 <div id="manual">
-  <input placeholder="a" style="margin-bottom: 0.1em; width: 20em;"><br><input placeholder="b" style="margin-bottom: 0.1em; width: 20em;"><br><button onclick="add(in1.value, in2.value);in1.value=in2.value='';" style="width: 20em">add</button>
+  <input placeholder="Value 1" style="margin-bottom: 0.1em; width: 20em;"><br><input placeholder="Value 2" style="margin-bottom: 0.1em; width: 20em;"><br><button onclick="add(in1.value, in2.value);in1.value=in2.value='';" style="width: 20em">Add</button>
 </div>
 <div id="entries">
 

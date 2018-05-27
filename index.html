@@ -14,7 +14,6 @@
   }
   function addEntry(a, b, i) {
     var elm = document.createElement('div');
-    elm.setAttribute('data-id', i);
     var btn = document.createElement('button');
     btn.innerHTML = 'X';
     btn.style = 'border: none; color: red;';
@@ -40,7 +39,7 @@
   }
   function remove(i) {
     var all = getAll();
-    all.splice(index, 1);
+    all.splice(i, 1);
     save(all);
     load();
   }

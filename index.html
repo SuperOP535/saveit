@@ -5,11 +5,24 @@
 <script>
   var in1 = document.getElementsByTagName('input')[0];
   var in2 = document.getElementsByTagName('input')[1];
+  var en1 = document.getElementsByTagName('div')[0];
   function getAll() {
-    
+    return (!localStorage.entries ? [] : JSON.parse(localStorage.entries));
   }
+  function save(thing) {
+    localStorage.entries = JSON.stringify(thing);
+  }
+  function load() {
+    getAll().forEach(function(e) {
+      var elm = document.createElement('div');
+      elm.appendChild(document.createTextNode(e.a + '\u00a0-'));
+      elm.appendChild(document.createTextNode('\u00a0' + e.b));
+    });
+  } load();
   function add() {
-    
+    var all = getAll();
+    all.push({a: in1.value, b: in2.value});
+    save(all);
   }
   function remove() {
     

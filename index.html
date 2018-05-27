@@ -1,7 +1,7 @@
-<select onchange="toggleMode()">
+<select style="margin-right: 0.1em" onchange="toggleMode()">
   <option selected>Manual</option>
   <option>RegEx</option>
-</select>
+</select><button onclick="prompt('Copy this', localStorage.entries)" style="margin-right: 0.1em">Export</button><button onclick="var val = prompt('Paste here');try{localStorage.entries=JSON.stringify(JSON.parse(val));}catch(e){alert('Invalid');}>Import</button>
 <div id="regex" style="display:none;">
   <textarea rows="5" style="width: 20em; margin-bottom: 0.1em"></textarea><br>
   <input placeholder="regex" style="width: 14em; margin-right: 0.1em;"><button onclick="parse()" style="width: 5.9em">parse</button>

@@ -39,7 +39,9 @@
     in1.value = in2.value = '';
   }
   function remove(i) {
-    array.splice(index, 1);
+    var all = getAll();
+    all.splice(index, 1);
+    save(all);
     load();
   }
   function removeAll() {

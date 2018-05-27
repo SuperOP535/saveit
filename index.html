@@ -1,10 +1,13 @@
-<input><input><button onclick="add()">add</button>
+<textarea><br><input placeholder="regex"><button onclick="parse()"><br>
+<input><input><button onclick="add(in1.value, in2.value);in1.value=in2.value='';">add</button>
 <div id="entries">
 
 </div>
 <script>
-  var in1 = document.getElementsByTagName('input')[0];
-  var in2 = document.getElementsByTagName('input')[1];
+  var tx0 = document.getElementsByTagName('textarea')[0];
+  var in0 = document.getElementsByTagName('input')[0];
+  var in1 = document.getElementsByTagName('input')[1];
+  var in2 = document.getElementsByTagName('input')[2];
   var en1 = document.getElementsByTagName('div')[0];
   function getAll() {
     return (!localStorage.entries ? [] : JSON.parse(localStorage.entries));
@@ -30,12 +33,11 @@
       addEntry(e.a, e.b, i);
     });
   } load();
-  function add() {
+  function add(a, b) {
     var all = getAll();
-    all.push({a: in1.value, b: in2.value});
+    all.push({a: a, b: b});
     save(all);
-    addEntry(in1.value, in2.value);
-    in1.value = in2.value = '';
+    addEntry(a, b);
   }
   function remove(i) {
     var all = getAll();
@@ -47,6 +49,8 @@
     save([]);
   }
   function parse() {
-    
+    tx.value.match(new RegExp(in0.value, 'g')).forEach(function(e) {
+      addEntry(e, '');
+    });
   }
 </script>

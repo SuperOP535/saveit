@@ -51,7 +51,7 @@
   function parse() {
     try {
       tx0.value.match(new RegExp(in0.value, 'g')).forEach(function(e) {
-        addEntry(e, '');
+        add(e, '');
       });
     } catch(e) {
       alert('No matches');

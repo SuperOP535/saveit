@@ -14,6 +14,14 @@
   }
   function addEntry(a, b, i) {
     var elm = document.createElement('div');
+    elm.setAttribute('data-id', i);
+    var btn = document.createElement('button');
+    btn.innerHTML = 'X';
+    btn.style = 'border: none; color: red;';
+    btn.onclick = function() {
+      remove(i);
+    };
+    elm.appendChild(btn);
     elm.appendChild(document.createTextNode(i + ':\u00a0' + a + '\u00a0-\u00a0' + b));
     en1.appendChild(elm);
   }
@@ -30,8 +38,9 @@
     addEntry(in1.value, in2.value);
     in1.value = in2.value = '';
   }
-  function remove() {
-    
+  function remove(i) {
+    array.splice(index, 1);
+    load();
   }
   function removeAll() {
     save([]);

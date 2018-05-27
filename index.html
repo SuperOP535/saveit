@@ -1,5 +1,17 @@
-<textarea rows="5" cols="20"></textarea><br><input placeholder="regex"><button onclick="parse()">parse</button><br>
-<input><input><button onclick="add(in1.value, in2.value);in1.value=in2.value='';">add</button>
+<select onchange="toggleMode()">
+  <option selected>Manual</option>
+  <option>RegEx</option>
+</select>
+<div id="regex" style="display:none;">
+  <textarea rows="5" cols="20"></textarea><br>
+  <input placeholder="regex">
+  <button onclick="parse()">parse</button>
+</div>
+<div id="manual">
+  <input placeholder="a">
+  <input placeholder="b">
+  <button onclick="add(in1.value, in2.value);in1.value=in2.value='';">add</button>
+</div>
 <div id="entries">
 
 </div>
@@ -8,7 +20,18 @@
   var in0 = document.getElementsByTagName('input')[0];
   var in1 = document.getElementsByTagName('input')[1];
   var in2 = document.getElementsByTagName('input')[2];
-  var en1 = document.getElementsByTagName('div')[0];
+  var en1 = document.getElementById('entries');
+  var rx = document.getElementById('regex');
+  var mn = document.getElementById('manual');
+  function toggleMode() {
+    if(!rx.style.display) {
+      rx.style.display = 'none';
+      mn.style.display = '';
+    } else {
+      rx.style.display = '';
+      mn.style.display = 'none';
+    }
+  }
   function getAll() {
     return (!localStorage.entries ? [] : JSON.parse(localStorage.entries));
   }

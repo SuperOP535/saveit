@@ -44,7 +44,27 @@
       remove(i);
     };
     elm.appendChild(btn);
-    elm.appendChild(document.createTextNode(a + '\u00a0|\u00a0' + b));
+    var spa = document.createElement('span');
+    spa.innerHTML = a;
+    var spb = document.createElement('span');
+    spb.innerHTML = b;
+    spa.ondblclick = function() {
+      spa.contentEditable = 'true';
+    };
+    spa.onblur = function() {
+      spa.contentEditable = 'false';
+      modify(i, spa.value, spb.value);
+    };
+    spb.ondblclick = function() {
+      spa.contentEditable = 'true';
+    };
+    spb.onblur = function() {
+      spa.contentEditable = 'false';
+      modify(i, spa.value, spb.value);
+    };
+    elm.appendChild(spa);
+    elm.appendChild(document.createTextNode('\u00a0|\u00a0'));
+    elm.appendChild(spb);
     en1.appendChild(elm);
   }
   function load() {
@@ -58,6 +78,12 @@
     all.push({a: a, b: b});
     save(all);
     addEntry(a, b, all.length-1);
+  }
+  function modify(i, a, b) {
+    var all = getAll();
+    all[i] = {a: a, b: b};
+    save(all);
+    load();
   }
   function remove(i) {
     var all = getAll();

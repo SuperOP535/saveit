@@ -4,7 +4,7 @@
 </select><button onclick="prompt('Copy this', localStorage.entries)" style="margin-right: 0.1em">Export</button><button onclick="var val = prompt('Paste here');try{save(JSON.parse(val));load();}catch(e){alert('Invalid');}">Import</button>
 <div id="regex" style="display:none;">
   <textarea placeholder="String input" rows="5" style="width: 20em; margin-bottom: 0.1em"></textarea><br>
-  <input placeholder="RegEx Pattern" style="width: 14em; margin-right: 0.1em;"><button onclick="parse()" style="width: 5.9em">Parse</button>
+  <input placeholder="RegEx Pattern" style="width: 10em; margin-right: 0.1em;"><button onclick="parse()" style="width: 5.9em; margin-right: 0.1em;">Parse</button><button onclick="parse()" style="width: 4.9em">Get</button>
 </div>
 <div id="manual">
   <input placeholder="Value 1" style="margin-bottom: 0.1em; width: 20em;"><br><input placeholder="Value 2" style="margin-bottom: 0.1em; width: 20em;"><br><button onclick="add(in1.value, in2.value);in1.value=in2.value='';" style="width: 20em">Add</button>

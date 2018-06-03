@@ -45,22 +45,15 @@
     };
     elm.appendChild(btn);
     var spa = document.createElement('span');
-    spa.innerHTML = a;
+    spa.innerText = a;
     var spb = document.createElement('span');
-    spb.innerHTML = b;
-    spa.ondblclick = function() {
-      spa.contentEditable = 'true';
+    spb.innerText = b;
+    spa.ondblclick = spb.ondblclick = function() {
+      this.contentEditable = 'true';
     };
-    spa.onblur = function() {
-      spa.contentEditable = 'false';
-      modify(i, spa.innerText, spb.innerText);
-    };
-    spb.ondblclick = function() {
-      spb.contentEditable = 'true';
-    };
-    spb.onblur = function() {
-      spb.contentEditable = 'false';
-      modify(i, spa.innerText, spb.innerText);
+    spa.onblur = spb.onblur = function() {
+      this.contentEditable = 'false';
+      modify(i, spa.innerHTML, spb.innerHTML);
     };
     elm.appendChild(spa);
     elm.appendChild(document.createTextNode('\u00a0|\u00a0'));

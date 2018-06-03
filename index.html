@@ -53,14 +53,14 @@
     };
     spa.onblur = function() {
       spa.contentEditable = 'false';
-      modify(i, spa.value, spb.value);
+      modify(i, spa.innerText, spb.innerText);
     };
     spb.ondblclick = function() {
       spb.contentEditable = 'true';
     };
     spb.onblur = function() {
       spb.contentEditable = 'false';
-      modify(i, spa.value, spb.value);
+      modify(i, spa.innerText, spb.innerText);
     };
     elm.appendChild(spa);
     elm.appendChild(document.createTextNode('\u00a0|\u00a0'));
